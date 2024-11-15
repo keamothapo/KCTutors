@@ -1,0 +1,1 @@
+Use REST API endpoints for the back-end, such as /api/auth, /api/bookings, and /api/payments, which the SvelteKit front-end will call to authenticate users, manage bookings, and handle payments. For example, the front-end can use the fetch API to make HTTP POST requests to /api/auth for user login and /api/bookings for creating or managing lesson bookings.
