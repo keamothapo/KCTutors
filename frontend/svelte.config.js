@@ -1,13 +1,15 @@
+import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-auto';
+import { preprocessMeltUI, sequence } from '@melt-ui/pp'
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
-	}
+export default {
+  preprocess: sequence[
+	preprocess({postcss: true}),  preprocessMeltUI()
+  ] ,
+  kit: {
+    adapter: adapter(),
+    files: {
+      routes: 'src/routes' 
+  }
+}
 };
-
-export default config;
